@@ -16,5 +16,5 @@ export class ProductsService {
       { id: 4, title: 'Tablet', price: 500,  categories: { 4: 'Entertainment' } }
     ]
   }
-  
+
 }

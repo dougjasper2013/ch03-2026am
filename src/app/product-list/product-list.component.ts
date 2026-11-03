@@ -15,10 +15,10 @@ export class ProductListComponent implements OnInit {
 
   selectedProduct: Product | undefined;
 
-  private productService: ProductsService;
+  // private productService: ProductsService;
 
-  constructor() {
-    this.productService = new ProductsService();
+  constructor(private productService: ProductsService) {
+    // this.productService = new ProductsService();
   }
 
   ngOnInit(): void {

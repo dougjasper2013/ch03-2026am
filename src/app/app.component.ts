@@ -17,4 +17,19 @@ import { APP_SETTINGS, appSettings } from './app.settings';
 export class AppComponent {
   title = 'ch03-2026am';
   settings = inject(APP_SETTINGS);
+
+  private setTitle = () => {
+    this.title = this.settings.title;
+  }
+
+  private changeTitle(callback: Function) {
+    setTimeout(() => {
+      callback();
+    }, 2000)
+  }
+
+  constructor() {
+    this.changeTitle(this.setTitle);
+  }
+  
 }

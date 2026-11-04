@@ -26,10 +26,17 @@ export class ProductListComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    // this.products = this.productService.getProducts();
+    this.getProducts();
   }
 
   onAdded(product: Product) {
     alert(`${product.title} added to the cart!`);
+  }
+
+  private getProducts() {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
   }
 }

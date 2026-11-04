@@ -11,7 +11,7 @@ import { FavoritesService } from '../favorites.service';
   styleUrl: './favorites.component.css',
   providers: [
     { provide: ProductsService, useClass: FavoritesService }
-  ]
+    ]
 })
 export class FavoritesComponent implements OnInit {
   products: Product[] = [];
@@ -19,7 +19,13 @@ export class FavoritesComponent implements OnInit {
   constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.getProducts();
+  }
+
+  private getProducts() {
+    this.productService.getProducts().subscribe(products => {
+    this.products = products.slice(1, 3);
+    });
   }
 
 }

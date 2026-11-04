@@ -24,7 +24,7 @@ export class FavoritesComponent implements OnInit {
 
   private getProducts() {
     this.productService.getProducts().subscribe(products => {
-    this.products = products.slice(1, 3);
+    this.products = products;
     });
   }
 
